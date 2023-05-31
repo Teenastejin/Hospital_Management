@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{%block title %} Contact Page {% endblock %}
+{% load static %}
+{% block content %}
+
+<h1 class="heading" style="text-align:center; color:rgb(245,245,245); " >Get in touch</h1>
+<p style="text-align:center; padding-top:-60px;">Heyo! We are located in Kochi,Trivandrum and kollam.<br> Feel free to use the contact form to the right to reach out to us, or write us the old fashion</p>
+<div style="width:50%;
+height:90%; margin-left:25%; margin-top:-144px; background:rgb(0,0,0,0.2);">
+    <form action="" method="POST" class="form" >
+        {%csrf_token%}
+        {{form.as_p}}
+        <input type="submit" value="Submit" onclick="alertsuccess()" class="btn btn-dark mb-6">
+        <script>
+            function alertsuccess(){
+                alert("submitted successfully")
+                };
+        </script>
+    </form>
+</div>
+
+{% endblock %}

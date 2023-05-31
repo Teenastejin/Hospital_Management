@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Career{% endblock %}
+{% load static %}
+{% block content %}
+<h1 class="text-center">Career Page</h1>
+<hr>
+<div class="container-class ">
+    <div class="leftside-career col-md-6">
+        <h2 style="color:#f5f5f5;">Careers</h2>
+    <h6>If you are a health care professional with commitment and wanted to be Par of Aster Medcity ,we invite you to the largest private health care provider in Central Travancore.</h6>
+    <hr>
+        <h4 style="text-align:center;">New Job Openings...</h4>
+        <br>
+<div class="container-card text-center ">
+    {% for i in jobkey %}
+        <div class="card  text-center mx-2 my-3" style="width:18rem; display:inline-block;  ">
+            <img  src="{{i.job_img.url}}"  alt="" width="100px" height="100px" class="card-img-top">
+            <div class="card-body">
+            <h5 class="card-title">{{i.job_post}}</h5>
+            <p class="card-text">{{i.qualification}}</p>
+            <h6>{{i.experience}}</h6>
+            <button  type="button" class="btn btn-dark">Explore</button>
+            </div>
+        </div>
+    {%endfor%}
+</div>
+    </div>
+   <div width="100%;" height="30%;">
+  <hr>
+
+</div>
+
+<div class="rightside-career col-md-6">
+    <form action="" method="POST" class="form" >
+        <h1 class="careerheading">Enter your info to connect with our team</h1>
+        <span class="careerheading">Please complete all fields..</span>
+        <hr >
+        {%csrf_token%}
+        {{form.as_p}}
+        <input type="submit" value="Submit" onclick="alertsuccess()" class="btn btn-dark mb-6">
+        <script>
+            function alertsuccess(){
+                alert("submitted successfully")
+                };
+        </script>
+    </form>
+</div>
+</div>
+{% endblock %}

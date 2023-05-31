@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{%block title %} Doctors Page {% endblock %}
+{% load static %}
+<!--    <link rel="stylesheet"  href="{% static '/css/style.css' %}">-->
+                                                                                                                            v
+{%block content %}
+<div>
+  <h1 class="heading" >Our Doctors</h1>
+<p class="p">To undertake specialized and <br>holistic healthcare services of<br> world standard and to provide<br> them to all sections....</p>
+</div>
+<div class="container text-center ">
+
+{% for i in dockey%}
+<div class="card text-center mx-2 my-3" style="width:18rem;   display:inline-block;">
+    <img  src="{{i.doc_img.url}}"  alt="" width="100px" height="200px" class="card-img-top">
+    <div class="card-body">
+        <h5 class="card-title">{{i.doc_name}}</h5>
+        <p class="card-text">{{i.doc_spec}}</p>
+        <h6>{{i.dep_name}}Department</h6>
+        <button  type="button" class="btn btn-dark">Explore</button>
+        <div>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
+{%endfor%}
+    </div>
+<div>
+</div>
+{% endblock %}
